@@ -1,24 +1,24 @@
 # All these parameters have to be fixed according to the specs. detailed in 852_Echo_Sounder_Kit_manual.pdf
-# profundidad_minima --> eco sounder kit manual, pg 23: Byte 15 Profile Minimum Range Minimum range for profile point digitization
+# range_min --> echo sounder kit manual, pg 23: Byte 15 Profile Minimum Range Minimum range for profile point digitization
 # 0 – 250  0 to 25 meters in 0.1 meter increments
 # Byte 15 = min range in meters / 10
-# profundidad_maxima ==> //Range: 5,10,20,30,40,50 in meters. Defined in the technical specs of the manufacturer 
-# Start Gain: 0 to 40dB in 1 dB increments,
-# longitud_pulso --> Byte 14 Pulse Length, Length of acoustic transmit pulse. 1-255. 1 to 255 micro sec in 1 micro sec increments
+# range_max ==> //Range: 5,10,20,30,40,50 in meters. Defined in the technical specs of the manufacturer 
+# gain ==> Start_Gain: 0 to 40dB in 1 dB increments,
+# pulse_length --> Byte 14 Pulse Length, Length of acoustic transmit pulse. 1-255. 1 to 255 micro sec in 1 micro sec increments
 # The external trigger must be a 0 to 5 volt TTL pulse with a minimum length of 100 microseconds.
 # Switch Delay: The echo sounder can be commanded to pause (from 0 to 510 msec). Before sending its return data to allow the commanding program enough time to setup for serial reception of the return data.
 # 0 to 255 in 2 msec increments Byte 24 = delay_in_milliseconds/2 . Do not use a value of 253!
 # //Data Points: 25=250 points 'IMX'
-# timeoutSerial : timeout of the serial port, integer
-# timerDuration: time between timer interruptions. Decimal, in seconds. The timer check outs the serial port, introduces the input frame and waits for the inpunt data. 
-# timerDuration is the period between calls to the timer callback. For example, if this is ros::Duration(0.1), the callback will be scheduled for every 1/10th of a second
+# timeout_serial : timeout of the serial port, integer
+# timer_duration: time between timer interruptions. Decimal, in seconds. The timer check outs the serial port, introduces the input frame and waits for the inpunt data. 
+# timer_duration is the period between calls to the timer callback. For example, if this is ros::Duration(0.1), the callback will be scheduled for every 1/10th of a second
 
-imagenex_echosounder/profundidad_maxima: 10.0
-imagenex_echosounder/profundidad_minima: 0.5
-imagenex_echosounder/ganancia: 14
-imagenex_echosounder/longitud_pulso: 100
-imagenex_echosounder/delay: 2
+imagenex_echosounder/max_range: 10.0
+imagenex_echosounder/min_range: 0.5
+imagenex_echosounder/gain_db: 14
+imagenex_echosounder/pulse_length_us: 100
+imagenex_echosounder/delay_ms: 2
 imagenex_echosounder/data_points: 25
-imagenex_echosounder/timeoutSerial: 1
-imagenex_echosounder/timerDuration: 0.5
+imagenex_echosounder/timeout_serial: 1
+imagenex_echosounder/timer_duration: 0.5
 
